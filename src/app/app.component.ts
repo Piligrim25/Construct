@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   galleryStickersOptions: NgxGalleryOptions[];
   galleryStickersImages: NgxGalleryImage[];
 
-  // wheelsList: Array<String> = new Array<String>();
   wheelsList: NgxGalleryImage[] = new Array<NgxGalleryImage>();
   carsList: NgxGalleryImage[] = new Array<NgxGalleryImage>();
   stickersList: NgxGalleryImage[] = new Array<NgxGalleryImage>();
@@ -32,79 +31,54 @@ export class AppComponent implements OnInit {
 
   }
 
-  addCar(): void {
-    if (this.onInitCars.length < 4) {
-      this.onInitCars.push('New car');
+  addObject(amountOfElements, list, name): void {
+    if (list.length < amountOfElements) {
+      list.push(name);
     }
+  }
+
+  addCar(): void {
+    this.addObject(4, this.onInitCars, 'New car');
   }
 
   addWheel(): void {
-    if (this.onInitWheels.length < 8) {
-      this.onInitWheels.push('New wheel');
-    }
+    this.addObject(8, this.onInitWheels, 'New wheel');
   }
 
   addSticker(): void {
-    if (this.onInitStickers.length < 10) {
-      this.onInitStickers.push('New sticker');
-    }
+    this.addObject(10, this.onInitStickers, 'New sticker');
   }
 
-  // getDataWheels() {
-  //   this.http.get("http://localhost:8080/demo/allwheels")
-  //     .subscribe(wheels => {
-  //       let wheelsArr: ImageObj[] = <Array<ImageObj>>wheels;
-  //       wheelsArr.forEach(wheel => this.wheelsList.push(wheel.url));
-  //     }
-  //   );
-  // }
-
-  getDataWheels() {
-    this.http.get("http://localhost:8080/demo/allwheels")
-      .subscribe(wheels => {
-        let wheelsArr: ImageObj[] = <Array<ImageObj>>wheels;
-        wheelsArr.forEach(wheel => this.wheelsList.push(
+  getData(dataUrl, list) {
+    this.http.get(dataUrl)
+      .subscribe(temps => {
+        let tempsArr: ImageObj[] = <Array<ImageObj>>temps;
+        tempsArr.forEach(temp => list.push(
           {
-            small: wheel.url,
-            medium: wheel.url
+            small: temp.url,
+            medium: temp.url
           }
         ));
       }
       );
+  }
+
+  getDataWheels() {
+    this.getData("http://localhost:8080/demo/allwheels", this.wheelsList);
   }
 
   getDataCars() {
-    this.http.get("http://localhost:8080/demo/allcars")
-      .subscribe(cars => {
-        let carsArr: ImageObj[] = <Array<ImageObj>>cars;
-        carsArr.forEach(car => this.carsList.push(
-          {
-            small: car.url,
-            medium: car.url
-          }
-        ));
-      }
-      );
+    this.getData("http://localhost:8080/demo/allcars", this.carsList);
   }
 
   getDataStickers() {
-    this.http.get("http://localhost:8080/demo/allstickers")
-      .subscribe(stickers => {
-        let stickersArr: ImageObj[] = <Array<ImageObj>>stickers;
-        stickersArr.forEach(sticker => this.stickersList.push(
-          {
-            small: sticker.url,
-            medium: sticker.url
-          }
-        ));
-      }
-      );
+    this.getData("http://localhost:8080/demo/allstickers", this.stickersList);
   }
 
   ngOnInit() {
-    this.getDataWheels()
-    this.getDataCars()
-    this.getDataStickers()
+    this.getDataWheels();
+    this.getDataCars();
+    this.getDataStickers();
 
     this.galleryCarsOptions = [
       { "thumbnails": false, "preview": false, "imageSize": "contain", "imageArrowsAutoHide": true, "width": "500px", "height": "400px" },
@@ -113,7 +87,7 @@ export class AppComponent implements OnInit {
     this.galleryCarsImages = this.carsList;
 
     this.galleryWheelsOptions = [
-      { "thumbnails": false, "preview": false, "imageSize": "contain", "imageArrowsAutoHide": true, "width": '90px', "height": '90px' },
+      { "thumbnails": false, "preview": false, "imageSize": "contain", "imageArrowsAutoHide": true, "width": '78px', "height": '78px' },
       { "breakpoint": 500 }
     ];
     this.galleryWheelsImages = this.wheelsList;
