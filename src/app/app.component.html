@@ -1,0 +1,40 @@
+<div class="container" style="text-align: center">
+  <div class="row">
+    <img src="assets/img/Car-logo.png" alt="Constructor logo" class="img-responsive">
+  </div>
+  <div class="logo">
+    Car<br>constructor
+  </div>
+
+</div>
+
+<div class="container color-dark" appMovableArea>
+  <div class="row" style="text-align: center">
+    <button class="button" (click)="addCar()" style="vertical-align:middle">
+      <span>Add car </span>
+    </button>
+    <button class="button" (click)="addWheel()" style="vertical-align:middle">
+      <span>Add wheel </span>
+    </button>
+    <button class="button" (click)="addSticker()" style="vertical-align:middle">
+      <span>Add sticker </span>
+    </button>
+  </div>
+
+  <div class="row">
+    <ngx-gallery [options]="galleryCarsOptions" [images]="galleryCarsImages" draggable="false" appMovable *ngFor="let car of onInitCars"></ngx-gallery>
+  </div>
+
+  <div class="row">
+    <ngx-gallery [options]="galleryWheelsOptions" [images]="galleryWheelsImages" draggable="false" appMovable *ngFor="let wheel of onInitWheels"></ngx-gallery>
+  </div>
+
+  <div class="row">
+    <ngx-gallery [options]="galleryStickersOptions" [images]="galleryStickersImages" draggable="false" appMovable *ngFor="let sticker of onInitStickers"></ngx-gallery>
+  </div>
+
+
+  <div class="signature">
+    <a href="https://github.com/Piligrim25" class="shine">Piligrim_18</a>
+  </div>
+</div>

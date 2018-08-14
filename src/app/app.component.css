@@ -1,0 +1,142 @@
+@import url("../../node_modules/font-awesome/css/font-awesome.css");
+
+.constructor {
+  overflow: hidden; width: 720px;
+}
+
+.col {
+  padding: .4em 1.3em;
+}
+.color-dark {
+  background-image: url("/assets/img/grad.jpeg");
+  background-size: cover;
+  text-align: center;  
+}
+
+.color-light {
+  background: #4cb1f5;
+}
+
+.text-shadow {
+  font-size: 150%;
+  color: white;
+  text-shadow: 1px 1px #732372,
+    1px -1px #732372,
+    -1px 1px #732372,
+      -1px -1px #732372,
+      3px 3px 6px rgba(0,0,0,.5);
+}
+
+.slider {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.wheel-container {
+  padding: 20px;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.wheel {
+  padding: 2px;
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.img-responsive{
+  background-size: cover;
+  display: inline-block;
+  width: 300px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #2497b4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 210px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.signature{
+  font-size: 150%;
+  text-align: right;
+  padding: 15px;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.shine
+{
+    background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 60px;
+    
+    color: rgba(20, 5, 5, 0.1);
+    -webkit-background-clip: text;
+    
+    -webkit-animation-name: shine;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes shine { 0% { background-position: top left;}
+    50% { background-position: top right;}
+}
+
+.logo {
+  font-size: 200%;
+  color: rgb(223, 233, 247);
+  font-family: 'Lucida Sans Regular';
+  text-shadow: -1px 1px 0px #00e6e6,
+  -2px 2px 0px #01cccc,
+  -3px 3px 0px #00bdbd;
+}

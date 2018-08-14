@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+body {
+  background: #defbff;
+  background-image: url("assets/img/R-8.jpg");
+  background-size: cover;  
+  padding: 3em;
+  font-family: 'Raleway', 'Arial';
+  color: #ffffff;
+}
+
+.draggable {
+  cursor: move;
+  user-select: none;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .basic-container {
+    padding: 5px;
+  }
+  
+  .version-info {
+    font-size: 8pt;
+    float: right;
+  }
+  
+  .g-overlay {
+    min-width: 320px;
+  }
+  
+  gallery {
+    font-size: 16px;
+  }
+  
+  .lightbox-example, .gallerize-example {
+    margin: 2em;
+  }
+  
